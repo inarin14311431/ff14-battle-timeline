@@ -34,3 +34,11 @@ Supabase、外部APIキーは不要です。端末内の編集はGitHubのファ
 
 ## ローカルDiscord Bot
 Windows PCで必要な時だけ起動するBotを`bot/`に用意しています。初回設定と操作方法は[bot/README.md](bot/README.md)を参照してください。BotはPages上では動かず、端末内のJSON／ZIPを利用します。
+
+## 商客物語アドバンスドの3ボス
+`src/data/advanced-darya.json`、`advanced-swordmaster.json`、`advanced-pari.json`を独立した編集用データとして同梱し、既存ブラウザにも未登録分を追加します。同名プリセットへの手元の編集は上書きしません。全件の秒数は未確認（null）で、完全な実戦順序・繰り返しも未確定です。自動タイマーとして使うには実測秒数の登録が必要です。攻略の説明順をもとにまとめており、異聞版の時刻は流用していません。
+- 人魚ダリヤ：https://game8.jp/ff14/767412
+- ソードマスター：https://game8.jp/ff14/767521
+- 火精ペリ：https://game8.jp/ff14/767414
+- 英語版の補完：https://www.icy-veins.com/ffxiv/dungeon-guide-the-merchants-tale-advanced （再使用される全体攻撃などの照合）
+攻略文は短い対処メモとして整理し、画像・動画・音声は転載していません。出典間の処理例が異なる箇所は、特定の固定散開位置を指定せず確認を促す音声にしています。

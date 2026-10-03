@@ -1,0 +1,142 @@
+{
+  "version": 1,
+  "boss": "商客物語 AVD／ソードマスター（時間・順序未確認）",
+  "events": [
+    {
+      "time": null,
+      "name": "剣気解放",
+      "note": "全体攻撃。軽減。",
+      "voiceParts": [
+        "raidwide",
+        "mitigate"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": null,
+      "name": "四方凶兆",
+      "note": "赤い方向を覚え、その方向から攻撃を受けない。",
+      "voiceParts": [
+        "checkdebuff"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": null,
+      "name": "縛鎖凶兆撃",
+      "note": "緑の方向が赤と重ならない人が線を受け持つ。",
+      "voiceParts": [
+        "checkdebuff",
+        "taketether"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": null,
+      "name": "変転光波＋霊撃波",
+      "note": "扇を避け、外周の光波を赤くない方向で受ける。",
+      "voiceParts": [
+        "cone",
+        "dodge",
+        "checkdebuff"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": null,
+      "name": "天界交差斬・円／輪",
+      "note": "円は外→内、輪は内→外。剣の数で必要人数を確認。",
+      "voiceParts": [
+        "checkcast",
+        "checkmarker"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": null,
+      "name": "灼熱残響＋咬撃十字斬＋八葉残響",
+      "note": "範囲捨てと十字・8方向範囲を回避。",
+      "voiceParts": [
+        "drop",
+        "cross",
+        "dodge"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": null,
+      "name": "天界交差斬・円／輪（再使用）",
+      "note": "内外と剣の数を確認。続く強攻撃前に回復。",
+      "voiceParts": [
+        "checkcast",
+        "checkmarker"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": null,
+      "name": "斬り上げ",
+      "note": "ヘイト1位へ強攻撃。",
+      "voiceParts": [
+        "tank",
+        "buster",
+        "mitigate"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": null,
+      "name": "凶兆撃×2＋幻影光波・四連＋灼熱残響",
+      "note": "赤くない方向で光波を受け、足元の範囲を捨てる。",
+      "voiceParts": [
+        "checkdebuff",
+        "drop"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": null,
+      "name": "時差剣波",
+      "note": "3番目の範囲で待ち、1番目の発動後に跡地へ。",
+      "voiceParts": [
+        "third",
+        "wait",
+        "first",
+        "move"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": null,
+      "name": "八葉反響＋咬撃古狼閃",
+      "note": "範囲を外周へ捨て、直線を避けてボスの背面へ。",
+      "voiceParts": [
+        "outer",
+        "drop",
+        "back"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": null,
+      "name": "剣気解放＋四方凶兆＋凶兆撃",
+      "note": "全体攻撃後、赤くない方向を確認。",
+      "voiceParts": [
+        "raidwide",
+        "checkdebuff"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": null,
+      "name": "幻影光波＋剣気呪縛＋縛鎖凶兆撃",
+      "note": "扇回避後に中央で線を受け、赤くない方角へ離れる。続く線取りを確認。",
+      "voiceParts": [
+        "center",
+        "breaktether",
+        "checkdebuff"
+      ],
+      "voiceBefore": 5
+    }
+  ]
+}
