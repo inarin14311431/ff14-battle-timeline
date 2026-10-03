@@ -3,3 +3,5 @@
 .part-group{width:100%;border-bottom:1px solid #29364b}.part-group summary{font-weight:600}
 
 nav{flex-wrap:wrap}ol li{margin:12px 0}header{gap:12px;flex-wrap:wrap}
+
+.provisional{border-color:#b7791f;color:#fde68a;font-size:14px}

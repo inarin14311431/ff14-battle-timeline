@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "boss": "商客物語 AVD／人魚ダリヤ（暫定秒数・未検証）",
+  "boss": "商客物語 AVD／人魚ダリヤ（時間・順序未確認）",
   "events": [
     {
-      "time": 10,
+      "time": null,
       "name": "ピアシングプランジ",
       "note": "全体攻撃。軽減。",
       "voiceParts": [
@@ -13,7 +13,7 @@
       "voiceBefore": 5
     },
     {
-      "time": 22,
+      "time": null,
       "name": "コールファミリア＋エコードセレナーデ",
       "note": "譜面の順番を確認し、直線範囲を順に避ける。",
       "voiceParts": [
@@ -24,7 +24,7 @@
       "voiceBefore": 5
     },
     {
-      "time": 48,
+      "time": null,
       "name": "サンケントレジャー＋ハイドロバレット",
       "note": "遅れて凍る水球側の輪へ。マーカー対象は別々の輪を使い、最後の水球から離れる。",
       "voiceParts": [
@@ -35,7 +35,7 @@
       "voiceBefore": 5
     },
     {
-      "time": 68,
+      "time": null,
       "name": "ハイドロキャノン",
       "note": "ヘイト1位に強攻撃。",
       "voiceParts": [
@@ -46,7 +46,7 @@
       "voiceBefore": 5
     },
     {
-      "time": 85,
+      "time": null,
       "name": "アクアスピア＋水の鎖＋タイダルウェイブ",
       "note": "鎖の距離を保ち、水たまりと落下を避けて2回のノックバックを受ける。",
       "voiceParts": [
@@ -57,7 +57,7 @@
       "voiceBefore": 5
     },
     {
-      "time": 105,
+      "time": null,
       "name": "ピアシングプランジ（2回目）",
       "note": "全体攻撃。軽減。",
       "voiceParts": [
@@ -67,7 +67,7 @@
       "voiceBefore": 5
     },
     {
-      "time": 125,
+      "time": null,
       "name": "スイムインエア＋ハイドロバレット",
       "note": "安全な2ヶ所を覚える。頭割りと単体マーカーを分け、無印は頭割りへ。",
       "voiceParts": [
@@ -77,7 +77,7 @@
       "voiceBefore": 5
     },
     {
-      "time": 150,
+      "time": null,
       "name": "水の鎖＋シースレスカレント",
       "note": "鎖の距離を維持して、外周の直線と本体の扇を避ける。",
       "voiceParts": [
@@ -88,7 +88,7 @@
       "voiceBefore": 5
     },
     {
-      "time": 175,
+      "time": null,
       "name": "チャーミングオーダー＋アクアボール",
       "note": "強制移動の向きを確認。足元の範囲3回を捨て、移動先を他者と分ける。",
       "voiceParts": [
@@ -98,7 +98,7 @@
       "voiceBefore": 5
     },
     {
-      "time": 205,
+      "time": null,
       "name": "ハイドロキャノン（2回目）",
       "note": "ヘイト1位に強攻撃。",
       "voiceParts": [
@@ -109,7 +109,7 @@
       "voiceBefore": 5
     },
     {
-      "time": 225,
+      "time": null,
       "name": "コールファミリア＋エコードセレナーデ＋ダブルタイド",
       "note": "動物の順番と円／ドーナツの順番を同時に確認。",
       "voiceParts": [
