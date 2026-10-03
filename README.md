@@ -29,3 +29,5 @@ Supabase、外部APIキーは不要です。端末内の編集はGitHubのファ
 - 極グラシャラボラス: https://game8.jp/ff14/750586 （ペア、散開、引き寄せ、ノックバック無効）
 - 絶バハムート: https://asellog.com/bahamut-p3tl2/ （塔、誘導、外周→中央、時計回り）
 - 絶オメガ: https://jp.finalfantasyxiv.com/lodestone/character/18294733/blog/5207837 （デバフ、役割、散開、頭割り）
+
+- 極エヌオー: https://game8.jp/ff14/782325 （詠唱中断、エスナ、雑魚処理、追跡、玉取り、基準方向、先頭、デバフ終了）
