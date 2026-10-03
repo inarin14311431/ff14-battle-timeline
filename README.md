@@ -30,5 +30,7 @@ Supabase、外部APIキーは不要です。端末内の編集はGitHubのファ
 - 絶バハムート: https://asellog.com/bahamut-p3tl2/ （塔、誘導、外周→中央、時計回り）
 - 絶オメガ: https://jp.finalfantasyxiv.com/lodestone/character/18294733/blog/5207837 （デバフ、役割、散開、頭割り）
 
+- 極エヌオー: https://game8.jp/ff14/782325 （詠唱中断、エスナ、雑魚処理、追跡、玉取り、基準方向、先頭、デバフ終了）
+
 ## ローカルDiscord Bot
 Windows PCで必要な時だけ起動するBotを`bot/`に用意しています。初回設定と操作方法は[bot/README.md](bot/README.md)を参照してください。BotはPages上では動かず、端末内のJSON／ZIPを利用します。
