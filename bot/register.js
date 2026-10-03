@@ -1,0 +1,2 @@
+import {REST,Routes} from 'discord.js';import {config} from './config.js';import {commands} from './commands.js';
+const c=config();try{await new REST({version:'10'}).setToken(c.DISCORD_TOKEN).put(Routes.applicationGuildCommands(c.DISCORD_CLIENT_ID,c.DISCORD_GUILD_ID),{body:commands});console.log('指定サーバーへコマンドを登録しました。')}catch{console.error('登録失敗。トークン、アプリID、サーバーID、Botの招待を確認してください。');process.exitCode=1}

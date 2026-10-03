@@ -1,1 +1,17 @@
-{"name":"ff14-battle-timeline","version":"0.1.0","private":true,"type":"module","scripts":{"build":"node scripts/build.mjs","test":"node --test","check":"node --check src/app.js && node --check src/core.js"},"dependencies":{"fflate":"0.8.2"},"devDependencies":{"esbuild":"0.25.10"}}
+{
+  "name": "ff14-battle-timeline",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test tests/*.test.js",
+    "check": "node --check src/app.js && node --check src/core.js"
+  },
+  "dependencies": {
+    "fflate": "0.8.2"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.10"
+  }
+}

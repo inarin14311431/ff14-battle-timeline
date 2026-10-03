@@ -1,0 +1,3 @@
+import {SlashCommandBuilder} from 'discord.js';
+const command=(name,description)=>new SlashCommandBuilder().setName(name).setDescription(description);
+export const commands=[command('join','自分のボイスチャンネルに参加'),command('leave','Botを退出'),command('start','タイムライン開始・再開').addStringOption(o=>o.setName('boss').setDescription('timelinesフォルダのファイル名').setAutocomplete(true)),command('pause','タイマーと音声を一時停止'),command('reset','タイマーを0秒に戻す'),command('seek','経過時間を補正').addNumberOption(o=>o.setName('seconds').setDescription('戦闘開始からの秒数').setRequired(true).setMinValue(0).setMaxValue(86400)),command('status','現在時刻と次の行動'),command('list','タイムライン一覧'),command('test','右・頭割りを試聴')].map(c=>c.toJSON());
