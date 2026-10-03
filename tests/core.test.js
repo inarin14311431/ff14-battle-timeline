@@ -1,0 +1,5 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {validate,position,due,demo,peri} from '../src/core.js';
+test('未確認時刻を自動タイムラインに含めない',()=>{assert.equal(position(peri,100).list.length,0);assert.equal(validate(peri).events.length,9)});
+test('現在と次を時刻で判定し、入力順が違っても並べる',()=>{const data={...demo,events:[...demo.events].reverse()};assert.equal(position(data,25).list[position(data,25).current].name,'右で頭割り');assert.equal(position(data,25).next.time,40)});
+test('音声の予告時刻を跨いだ場合だけ再生対象にする',()=>{assert.equal(due(demo,4,5).length,1);assert.equal(due(demo,5,6).length,0);const zero={...demo,events:[{...demo.events[0],time:0}]};assert.equal(due(zero,-.001,0).length,1)});
+test('負数、不明な音声ID、文字列時刻を拒否',()=>{for(const change of [{time:-1},{time:'18'},{voiceParts:['unknown']},{voiceBefore:-1}])assert.throws(()=>validate({...demo,events:[{...demo.events[0],...change}]}))});
