@@ -1,0 +1,27 @@
+{
+  "name": "ff14-timeline-discord-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --env-file=.env index.js",
+    "register": "node --env-file=.env register.js",
+    "prepare-audio": "node prepare-audio.js",
+    "test": "node --test",
+    "check": "node --check index.js && node --check files.js && node --check commands.js && node --check prepare-audio.js && node --check register.js"
+  },
+  "keywords": [],
+  "author": "",
+  "type": "module",
+  "dependencies": {
+    "@discordjs/voice": "^0.19.2",
+    "discord.js": "^14.27.0",
+    "fflate": "^0.8.3",
+    "ffmpeg-static": "^5.3.0",
+    "opusscript": "^0.0.8"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=24.17.0"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "boss": "操作サンプル（架空の時間）",
+  "events": [
+    {
+      "time": 10,
+      "name": "全体攻撃",
+      "note": "動作確認用のサンプルです。実際のボスの時間ではありません。",
+      "voiceParts": [
+        "raidwide",
+        "mitigate"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 25,
+      "name": "右で頭割り",
+      "note": "右側に集合",
+      "voiceParts": [
+        "right",
+        "stack"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 40,
+      "name": "中央で散開",
+      "note": "周囲と距離を取る",
+      "voiceParts": [
+        "center",
+        "spread"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 55,
+      "name": "タンク強攻撃",
+      "note": "軽減を使用",
+      "voiceParts": [
+        "tank",
+        "buster"
+      ],
+      "voiceBefore": 5
+    }
+  ]
+}

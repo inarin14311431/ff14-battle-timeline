@@ -1,0 +1,25 @@
+name: Bot checks
+on:
+  pull_request:
+    paths: ['bot/**', 'src/core.js', '.github/workflows/bot.yml']
+  push:
+    branches: [main]
+    paths: ['bot/**', 'src/core.js', '.github/workflows/bot.yml']
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: bot/package-lock.json
+      - run: npm ci --ignore-scripts
+        working-directory: bot
+      - run: npm run check
+        working-directory: bot
+      - run: npm test
+        working-directory: bot
