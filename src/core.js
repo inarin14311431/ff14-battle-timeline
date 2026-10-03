@@ -1,4 +1,13 @@
 export const parts={raidwide:'全体攻撃',buster:'強攻撃',right:'右',left:'左',spread:'散開',center:'中央',stack:'頭割り',gather:'集合',outer:'外周',front:'前',back:'後ろ',move:'移動',wait:'待機',mitigate:'軽減',tank:'タンク',healer:'ヒーラー',marked:'マーカー対象',three:'3',two:'2',one:'1'};
+export const partGroups=[
+ {label:'攻撃・対処',ids:['raidwide','buster','stack','pair','lightparty','spread','eightspread','gather','mitigate','heal','barrier','invuln','swap','tanklb','knockback','antiknockback','pull','distance','tower','tether','breaktether','taketether','bait','drop','dodge','lookaway','stop','keepmoving','move','wait','checkcast','checkdebuff','checkmarker']},
+ {label:'位置・方向',ids:['right','left','center','outer','inner','front','back','under','away','north','south','east','west','northeast','northwest','southeast','southwest','clockwise','counterclockwise','opposite','diagonal','safe']},
+ {label:'範囲・順番',ids:['circle','donut','cone','line','cross','inout','outin','first','second','third','fourth','then']},
+ {label:'対象・人数',ids:['tank','healer','dps','melee','ranged','mt','st','h1','h2','d1','d2','d3','d4','marked','unmarked','everyone','one','two','three','four','five','six','seven','eight']}
+];
+Object.assign(parts,{pair:'ペア頭割り',lightparty:'4人頭割り',eightspread:'8方向散開',heal:'回復',barrier:'バリア',invuln:'無敵',swap:'スイッチ',tanklb:'タンクリミットブレイク',knockback:'ノックバック',antiknockback:'ノックバック無効',pull:'引き寄せ',distance:'距離減衰',tower:'塔踏み',tether:'線',breaktether:'線を切る',taketether:'線を取る',bait:'誘導',drop:'範囲を捨てる',dodge:'避ける',lookaway:'視線を外す',stop:'動かない',keepmoving:'動き続ける',checkcast:'詠唱を確認',checkdebuff:'デバフを確認',checkmarker:'マーカーを確認',inner:'内周',under:'足元',away:'離れる',north:'北',south:'南',east:'東',west:'西',northeast:'北東',northwest:'北西',southeast:'南東',southwest:'南西',clockwise:'時計回り',counterclockwise:'反時計回り',opposite:'反対側',diagonal:'対角',safe:'安置',circle:'円範囲',donut:'ドーナツ範囲',cone:'扇範囲',line:'直線範囲',cross:'十字範囲',inout:'内から外',outin:'外から内',first:'1回目',second:'2回目',third:'3回目',fourth:'4回目',then:'その後',dps:'DPS',melee:'近接',ranged:'遠隔',mt:'メインタンク',st:'サブタンク',h1:'ヒーラー1',h2:'ヒーラー2',d1:'D1',d2:'D2',d3:'D3',d4:'D4',unmarked:'マーカーなし',everyone:'全員',four:'4',five:'5',six:'6',seven:'7',eight:'8'});
+export function upcoming(data,time){const p=position(data,time);return {next:p.next,visible:p.list.slice(p.current+1,p.current+5)};}
+
 export function validate(raw){
  if(!raw||raw.version!==1||typeof raw.boss!=='string'||!raw.boss.trim()||raw.boss.length>200||!Array.isArray(raw.events)||raw.events.length>1000)throw Error('ボス名とversion: 1、eventsのあるJSONを指定してください。');
  return {version:1,boss:raw.boss,events:raw.events.map((e,i)=>{

@@ -21,3 +21,11 @@ Node.js 22で `npm ci` → `npm test` → `npm run build`。`dist`が公開用�
 ローカル確認: `python3 -m http.server 8080 --directory dist`。
 GitHub Settings → Pages → SourceをGitHub Actionsに設定します。PR時に検証し、mainへのpush時に検証とGitHub Pages公開を行います。
 Supabase、外部APIキーは不要です。端末内の編集はGitHubのファイルを更新しません。
+
+## 次の行動と音声パーツ
+表示ページは未発生の次の行動を先頭に強調し、発生時刻に次の項目へ移ります。最後の項目が発生すると終了表示になります。
+音声選択は「攻撃・対処」「位置・方向」「範囲・順番」「対象・人数」に分類しています。例: 北 → 塔踏み → その後 → ノックバック無効。左右・散開か頭割りなどのランダム分岐は、手動タイマーだけでは判定できないため、詠唱を確認／デバフを確認を利用してください。
+音声パーツ追加時の参照資料（音声・画像の転載はなし）:
+- 極グラシャラボラス: https://game8.jp/ff14/750586 （ペア、散開、引き寄せ、ノックバック無効）
+- 絶バハムート: https://asellog.com/bahamut-p3tl2/ （塔、誘導、外周→中央、時計回り）
+- 絶オメガ: https://jp.finalfantasyxiv.com/lodestone/character/18294733/blog/5207837 （デバフ、役割、散開、頭割り）
