@@ -1,0 +1,418 @@
+{
+  "version": 1,
+  "boss": "極エヌオー討滅戦（暫定・Game8掲載時刻）",
+  "events": [
+    {
+      "time": 9,
+      "name": "メテオレイン",
+      "note": "全体。軽減。 Game8掲載時刻を採用（実機未検証）。雑魚処理後は時刻を補正。",
+      "voiceParts": [
+        "raidwide",
+        "mitigate"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 21,
+      "name": "無の肥大",
+      "note": "円／ドーナツとマーカーを確認。人数に合わせて頭割り。",
+      "voiceParts": [
+        "checkmarker",
+        "stack"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 35,
+      "name": "無の活性",
+      "note": "次の中央集合に備える。",
+      "voiceParts": [
+        "center",
+        "gather"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 39,
+      "name": "メルトダウン",
+      "note": "中央集合。デバフ中は動かず、解除後に散開。",
+      "voiceParts": [
+        "checkdebuff"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 52,
+      "name": "拡散波動／収束波動",
+      "note": "拡散はペア、収束は4人。詠唱で判断。",
+      "voiceParts": [
+        "checkcast"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 59,
+      "name": "無の肥大",
+      "note": "円／ドーナツとマーカーを確認。人数に合わせて頭割り。",
+      "voiceParts": [
+        "checkmarker",
+        "stack"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 77,
+      "name": "混沌の激流",
+      "note": "ペアで黄→紫の玉。デバフ解除を待つ。",
+      "voiceParts": [
+        "pair",
+        "takeorb",
+        "checkexpiry"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 107,
+      "name": "無の渦",
+      "note": "曲線の長さを見て安置へ。",
+      "voiceParts": [
+        "safe",
+        "dodge"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 117,
+      "name": "拡散波動／収束波動",
+      "note": "拡散はペア、収束は4人。詠唱で判断。",
+      "voiceParts": [
+        "checkcast"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 127,
+      "name": "ディープフリーズ",
+      "note": "タンクは距離減衰を離す。詠唱終了前から動く。",
+      "voiceParts": [
+        "distance",
+        "keepmoving"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 135,
+      "name": "メテオレイン",
+      "note": "全体。軽減。",
+      "voiceParts": [
+        "raidwide",
+        "mitigate"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 149,
+      "name": "無の領域",
+      "note": "雑魚フェーズへ。塔・扇の担当位置を確認。",
+      "voiceParts": [
+        "adds",
+        "checkmarker"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 177,
+      "name": "無の渦流",
+      "note": "マーカー有無で塔と扇の担当を判断。",
+      "voiceParts": [
+        "checkmarker",
+        "tower"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 186,
+      "name": "悪魔の瞳",
+      "note": "DPS担当の雑魚：視線回避。",
+      "voiceParts": [
+        "lookaway"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 207,
+      "name": "病の呪詛＋ドレインタッチ",
+      "note": "ヒーラーはエスナ。タンクは担当雑魚の強攻撃に備える。",
+      "voiceParts": [
+        "esuna",
+        "buster"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 214,
+      "name": "高圧波動",
+      "note": "タンク担当の雑魚：中断。",
+      "voiceParts": [
+        "interrupt"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 247,
+      "name": "無の波動",
+      "note": "雑魚の処理状況と脱出を確認。時刻は目安。",
+      "voiceParts": [
+        "checkmarker"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 262,
+      "name": "ライトレス・ワールド",
+      "note": "後半開始、連続全体。軽減。ズレたらこの行に時刻を合わせる。",
+      "voiceParts": [
+        "raidwide",
+        "mitigate"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 282,
+      "name": "アルマゲスト",
+      "note": "全体。軽減。",
+      "voiceParts": [
+        "raidwide",
+        "mitigate"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 293,
+      "name": "無の肥大",
+      "note": "円／ドーナツとマーカーを確認。人数に合わせて頭割り。",
+      "voiceParts": [
+        "checkmarker",
+        "stack"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 307,
+      "name": "無の活性",
+      "note": "外周予兆を見て安置へ。",
+      "voiceParts": [
+        "checkmarker",
+        "safe"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 329,
+      "name": "シャドウホーリー",
+      "note": "ヒーラー対象の4人頭割り。",
+      "voiceParts": [
+        "lightparty"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 343,
+      "name": "無の肥大",
+      "note": "円／ドーナツとマーカーを確認。人数に合わせて頭割り。",
+      "voiceParts": [
+        "checkmarker",
+        "stack"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 356,
+      "name": "ディメンションゼロ",
+      "note": "全員集合、3連の直線頭割り。",
+      "voiceParts": [
+        "stack",
+        "mitigate"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 372,
+      "name": "無の渦",
+      "note": "安置で次のメルトダウンに備える。",
+      "voiceParts": [
+        "safe",
+        "dodge"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 376,
+      "name": "メルトダウン",
+      "note": "渦の安置でデバフ処理。解除後に散開。",
+      "voiceParts": [
+        "checkdebuff"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 393,
+      "name": "混沌の激流",
+      "note": "ペアで黄→紫の玉。デバフ解除を待つ。",
+      "voiceParts": [
+        "pair",
+        "takeorb",
+        "checkexpiry"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 428,
+      "name": "アルマゲスト",
+      "note": "全体。軽減。",
+      "voiceParts": [
+        "raidwide",
+        "mitigate"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 441,
+      "name": "無の活性",
+      "note": "外周予兆を見て安置へ。",
+      "voiceParts": [
+        "checkmarker",
+        "safe"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 445,
+      "name": "無の追跡",
+      "note": "線対象は外周で誘導。時計→反時計は担当マクロに従う。",
+      "voiceParts": [
+        "checkmarker",
+        "chase"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 474,
+      "name": "拡散波動／収束波動",
+      "note": "拡散はペア、収束は4人。詠唱で判断。",
+      "voiceParts": [
+        "checkcast"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 486,
+      "name": "無の追跡",
+      "note": "線対象は外周で誘導。時計→反時計は担当マクロに従う。",
+      "voiceParts": [
+        "checkmarker",
+        "chase"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 515,
+      "name": "拡散波動／収束波動",
+      "note": "拡散はペア、収束は4人。詠唱で判断。",
+      "voiceParts": [
+        "checkcast"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 523,
+      "name": "ディメンションゼロ",
+      "note": "全員集合、3連の直線頭割り。",
+      "voiceParts": [
+        "stack",
+        "mitigate"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 538,
+      "name": "アルマゲスト",
+      "note": "全体。軽減。",
+      "voiceParts": [
+        "raidwide",
+        "mitigate"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 549,
+      "name": "無の肥大",
+      "note": "円／ドーナツとマーカーを確認。人数に合わせて頭割り。",
+      "voiceParts": [
+        "checkmarker",
+        "stack"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 564,
+      "name": "無の活性",
+      "note": "外周予兆を見て安置へ。",
+      "voiceParts": [
+        "checkmarker",
+        "safe"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 584,
+      "name": "ディープフリーズ",
+      "note": "タンクは距離減衰を離す。詠唱終了前から動く。",
+      "voiceParts": [
+        "distance",
+        "keepmoving"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 597,
+      "name": "無の肥大",
+      "note": "円／ドーナツとマーカーを確認。人数に合わせて頭割り。",
+      "voiceParts": [
+        "checkmarker",
+        "stack"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 606,
+      "name": "ディメンションゼロ",
+      "note": "全員集合、3連の直線頭割り。",
+      "voiceParts": [
+        "stack",
+        "mitigate"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 626,
+      "name": "メテオレイン",
+      "note": "全体。軽減。",
+      "voiceParts": [
+        "raidwide",
+        "mitigate"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 650,
+      "name": "アルマゲスト",
+      "note": "全体。軽減。",
+      "voiceParts": [
+        "raidwide",
+        "mitigate"
+      ],
+      "voiceBefore": 5
+    }
+  ]
+}

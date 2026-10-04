@@ -161,6 +161,12 @@ DISCORD_OWNER_ID=YOUR_USER_ID
 
 同梱データの秒数は暫定です。Web版で秒数や音声を調整して書き出したファイルも、同じ手順で利用できます。必要な音声が足りない場合は `prepare-audio.cmd` を実行するか、音声付きZIPを用意してください。
 
+### 極エヌオーを使う
+
+[極エヌオーのJSON](https://inarin14311431.github.io/ff14-battle-timeline/data/extreme-enuo.json)をダウンロードするか、プログラムの `src/data/extreme-enuo.json` を `bot/timelines` にコピーします。`/start` のboss欄で `extreme-enuo.json` を選択します。Webのタイムライン選択にも追加しています。
+
+Game8掲載時刻を使った暫定版で、実機検証はしていません。雑魚処理後にずれた場合は、ライトレス・ワールドを目印に `/seek seconds:262` で補正します。記事の時刻に相当するタイミングで合わせてください。5秒前の予告音声とは区別します。拡散／収束などは詠唱を見て判断します。
+
 ### ボスを切り替える・同じボスをやり直す
 
 - **別のボスへ切り替える**：`/pause` で停止し、`/start` のboss欄に次のファイルを指定します。新しいボスは0秒から開始します。
