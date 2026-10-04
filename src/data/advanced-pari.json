@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "boss": "商客物語 AVD／火精ペリ（暫定秒数・未検証）",
+  "boss": "商客物語 AVD／火精ペリ（暫定秒数＋10秒・未検証）",
   "events": [
     {
       "time": 10,
       "name": "熱波",
-      "note": "全体攻撃。軽減。",
+      "note": "全体。軽減",
       "voiceParts": [
         "raidwide",
         "mitigate"
@@ -13,30 +13,19 @@
       "voiceBefore": 5
     },
     {
-      "time": 22,
-      "name": "左方／右方炎舞→火の輪",
-      "note": "詠唱側と反対の半面へ。突進の最後は足元。",
+      "time": 21,
+      "name": "左方炎舞 or 右方炎舞 → 火の輪",
+      "note": "詠唱名の側に半面を出しながら3回突進。左方ならボスの右側、右方なら左側が安地。3回目を見送って足元へ。直後のドーナツも足元",
       "voiceParts": [
-        "checkcast",
-        "dodge",
-        "under"
-      ],
-      "voiceBefore": 5
-    },
-    {
-      "time": 45,
-      "name": "玉石混交・炎鎖（1回目）",
-      "note": "幻影と宝石の範囲を避ける安置へ離れて線を切る。",
-      "voiceParts": [
-        "safe",
-        "breaktether"
+        "checkmarker",
+        "dodge"
       ],
       "voiceBefore": 5
     },
     {
       "time": 58,
-      "name": "玉石混交・炎鎖（2回目）",
-      "note": "同じ処理を再度行う。",
+      "name": "玉石混交・炎鎖",
+      "note": "幻影の半面、赤い宝石の十字、線2本。十字と半面を避けた1マス安置で線を切る。2回",
       "voiceParts": [
         "safe",
         "breaktether"
@@ -44,9 +33,9 @@
       "voiceBefore": 5
     },
     {
-      "time": 75,
-      "name": "昇り火",
-      "note": "ヘイト1位へ強攻撃。",
+      "time": 97,
+      "name": "昇り火 → 炎舞四連・追火",
+      "note": "昇り火はヘイト1位の魔法強攻撃。四連は時計×2→反時計×2、またはその逆。線は二度付け禁止。2人は交互に取る",
       "voiceParts": [
         "tank",
         "buster",
@@ -55,19 +44,9 @@
       "voiceBefore": 5
     },
     {
-      "time": 90,
-      "name": "左方／右方炎舞四連・追火",
-      "note": "回転予兆を確認し、線の担当を交代。",
-      "voiceParts": [
-        "checkmarker",
-        "taketether"
-      ],
-      "voiceBefore": 5
-    },
-    {
-      "time": 105,
-      "name": "左方／右方炎舞・虚々実々→火の輪",
-      "note": "本物の経路を見て回避し、最後は足元へ。",
+      "time": 197,
+      "name": "炎舞・虚々実々 → 火の輪",
+      "note": "開幕の突進と同じ。偽予兆が混ざるので、実際に進む経路だけ見る",
       "voiceParts": [
         "checkmarker",
         "dodge",
@@ -76,19 +55,9 @@
       "voiceBefore": 5
     },
     {
-      "time": 115,
-      "name": "熱波（2回目）",
-      "note": "全体攻撃。軽減。",
-      "voiceParts": [
-        "raidwide",
-        "mitigate"
-      ],
-      "voiceBefore": 5
-    },
-    {
-      "time": 120,
-      "name": "火精の呪い＋魔力の輝石",
-      "note": "散開か頭割りのデバフを確認。十字を避け、対象者を分ける。",
+      "time": 220,
+      "name": "火精の呪い → 魔力の輝石",
+      "note": "2人に散（円）か集（頭割り）。十字がない列2つを使い、円は外周寄り、頭割りは内周寄り。無職は頭割りへ",
       "voiceParts": [
         "checkdebuff",
         "checkmarker"
@@ -96,9 +65,9 @@
       "voiceBefore": 5
     },
     {
-      "time": 135,
+      "time": 264,
       "name": "玉石混交・幻影",
-      "note": "最初の範囲を避けたら対角へ。",
+      "note": "斜め予兆の幻影の逆側で待つ。1回目のあと対角へ。2回目は向きが反転する",
       "voiceParts": [
         "safe",
         "then",
@@ -108,9 +77,9 @@
       "voiceBefore": 5
     },
     {
-      "time": 145,
+      "time": 310,
       "name": "怒りの炎",
-      "note": "全体攻撃。軽減。",
+      "note": "全体。軽減",
       "voiceParts": [
         "raidwide",
         "mitigate"
@@ -118,9 +87,9 @@
       "voiceBefore": 5
     },
     {
-      "time": 152,
+      "time": 312,
       "name": "焔光",
-      "note": "連続範囲を捨てて避け、頭割りに集合。",
+      "note": "上下から広がる円と、プレイヤー狙いの巨大円。最後は頭割りなので集合",
       "voiceParts": [
         "drop",
         "then",
@@ -129,12 +98,11 @@
       "voiceBefore": 5
     },
     {
-      "time": 180,
+      "time": 338,
       "name": "叫怒の爆炎",
-      "note": "頭割り直後の全体攻撃。回復と軽減。",
+      "note": "頭割りの直後の全体。戻し優先",
       "voiceParts": [
         "raidwide",
-        "heal",
         "mitigate"
       ],
       "voiceBefore": 5

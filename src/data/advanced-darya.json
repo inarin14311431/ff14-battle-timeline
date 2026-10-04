@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "boss": "商客物語 AVD／人魚ダリヤ（暫定秒数・未検証）",
+  "boss": "商客物語 AVD／人魚ダリヤ（暫定秒数＋10秒・未検証）",
   "events": [
     {
       "time": 10,
       "name": "ピアシングプランジ",
-      "note": "全体攻撃。軽減。",
+      "note": "魔法全体。軽減",
       "voiceParts": [
         "raidwide",
         "mitigate"
@@ -13,9 +13,9 @@
       "voiceBefore": 5
     },
     {
-      "time": 22,
-      "name": "コールファミリア＋エコードセレナーデ",
-      "note": "譜面の順番を確認し、直線範囲を順に避ける。",
+      "time": 12,
+      "name": "コールファミリア → エコードセレナーデ",
+      "note": "外周4体が譜面順に直線。2番目の上で待ち、1番目の跡地へ",
       "voiceParts": [
         "checkmarker",
         "line",
@@ -24,9 +24,9 @@
       "voiceBefore": 5
     },
     {
-      "time": 48,
-      "name": "サンケントレジャー＋ハイドロバレット",
-      "note": "遅れて凍る水球側の輪へ。マーカー対象は別々の輪を使い、最後の水球から離れる。",
+      "time": 43,
+      "name": "サンケントレジャー → ハイドロバレット",
+      "note": "凍らない水球側のドーナツ2つに、橙マーカーを分けて入る。爆発後は残った水球から離れる",
       "voiceParts": [
         "checkmarker",
         "safe",
@@ -35,9 +35,9 @@
       "voiceBefore": 5
     },
     {
-      "time": 68,
+      "time": 99,
       "name": "ハイドロキャノン",
-      "note": "ヘイト1位に強攻撃。",
+      "note": "ヘイト1位の強攻撃",
       "voiceParts": [
         "tank",
         "buster",
@@ -46,9 +46,9 @@
       "voiceBefore": 5
     },
     {
-      "time": 85,
-      "name": "アクアスピア＋水の鎖＋タイダルウェイブ",
-      "note": "鎖の距離を保ち、水たまりと落下を避けて2回のノックバックを受ける。",
+      "time": 101,
+      "name": "アクアスピア",
+      "note": "踏むと水毒の水たまりが5箇所",
       "voiceParts": [
         "tether",
         "knockback",
@@ -57,19 +57,31 @@
       "voiceBefore": 5
     },
     {
-      "time": 105,
-      "name": "ピアシングプランジ（2回目）",
-      "note": "全体攻撃。軽減。",
+      "time": 106,
+      "name": "水の鎖",
+      "note": "一定距離を保つ",
       "voiceParts": [
-        "raidwide",
-        "mitigate"
+        "tether",
+        "knockback",
+        "checkmarker"
       ],
       "voiceBefore": 5
     },
     {
-      "time": 125,
-      "name": "スイムインエア＋ハイドロバレット",
-      "note": "安全な2ヶ所を覚える。頭割りと単体マーカーを分け、無印は頭割りへ。",
+      "time": 121,
+      "name": "タイダルウェイブ",
+      "note": "外周からのノックバックが2回。アームズレングス / 堅実魔で無効可",
+      "voiceParts": [
+        "tether",
+        "knockback",
+        "checkmarker"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 180,
+      "name": "スイム・イン・エア → ハイドロバレット",
+      "note": "置かれない安地が2つ。頭割り1人、単体円1人。先の安地が頭割り、後が単体受けが多い",
       "voiceParts": [
         "checkmarker",
         "stack"
@@ -77,9 +89,20 @@
       "voiceBefore": 5
     },
     {
-      "time": 150,
-      "name": "水の鎖＋シースレスカレント",
-      "note": "鎖の距離を維持して、外周の直線と本体の扇を避ける。",
+      "time": 270,
+      "name": "水の鎖",
+      "note": "距離を保つ",
+      "voiceParts": [
+        "tether",
+        "knockback",
+        "checkmarker"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 279,
+      "name": "シースレスカレント → サージングカレント",
+      "note": "外周の移動直線と、ボス扇（安地2つ）を対角で処理",
       "voiceParts": [
         "tether",
         "cone",
@@ -88,9 +111,9 @@
       "voiceBefore": 5
     },
     {
-      "time": 175,
-      "name": "チャーミングオーダー＋アクアボール",
-      "note": "強制移動の向きを確認。足元の範囲3回を捨て、移動先を他者と分ける。",
+      "time": 312,
+      "name": "チャーミングオーダー → アクアボール → ハイドロバレット",
+      "note": "付与から16秒で向いている方向へ約2.1マス強制移動。直前に足元円を3発捨てる。4人は四隅を先に決める",
       "voiceParts": [
         "checkdebuff",
         "drop"
@@ -98,9 +121,9 @@
       "voiceBefore": 5
     },
     {
-      "time": 205,
-      "name": "ハイドロキャノン（2回目）",
-      "note": "ヘイト1位に強攻撃。",
+      "time": 372,
+      "name": "ハイドロキャノン",
+      "note": "ヘイト1位の強攻撃",
       "voiceParts": [
         "tank",
         "buster",
@@ -109,12 +132,12 @@
       "voiceBefore": 5
     },
     {
-      "time": 225,
-      "name": "コールファミリア＋エコードセレナーデ＋ダブルタイド",
-      "note": "動物の順番と円／ドーナツの順番を同時に確認。",
+      "time": 377,
+      "name": "コールファミリア → エコードセレナーデ → ラウンド / リング・ダブルタイド",
+      "note": "動物の直線に加え、円→ドーナツ、またはドーナツ→円",
       "voiceParts": [
-        "checkcast",
         "checkmarker",
+        "line",
         "dodge"
       ],
       "voiceBefore": 5

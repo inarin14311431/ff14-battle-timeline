@@ -1,0 +1,143 @@
+{
+  "version": 1,
+  "boss": "商客物語 AVD／火精ペリ（暫定秒数・未検証）",
+  "events": [
+    {
+      "time": 10,
+      "name": "熱波",
+      "note": "全体攻撃。軽減。",
+      "voiceParts": [
+        "raidwide",
+        "mitigate"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 22,
+      "name": "左方／右方炎舞→火の輪",
+      "note": "詠唱側と反対の半面へ。突進の最後は足元。",
+      "voiceParts": [
+        "checkcast",
+        "dodge",
+        "under"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 45,
+      "name": "玉石混交・炎鎖（1回目）",
+      "note": "幻影と宝石の範囲を避ける安置へ離れて線を切る。",
+      "voiceParts": [
+        "safe",
+        "breaktether"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 58,
+      "name": "玉石混交・炎鎖（2回目）",
+      "note": "同じ処理を再度行う。",
+      "voiceParts": [
+        "safe",
+        "breaktether"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 75,
+      "name": "昇り火",
+      "note": "ヘイト1位へ強攻撃。",
+      "voiceParts": [
+        "tank",
+        "buster",
+        "mitigate"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 90,
+      "name": "左方／右方炎舞四連・追火",
+      "note": "回転予兆を確認し、線の担当を交代。",
+      "voiceParts": [
+        "checkmarker",
+        "taketether"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 105,
+      "name": "左方／右方炎舞・虚々実々→火の輪",
+      "note": "本物の経路を見て回避し、最後は足元へ。",
+      "voiceParts": [
+        "checkmarker",
+        "dodge",
+        "under"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 115,
+      "name": "熱波（2回目）",
+      "note": "全体攻撃。軽減。",
+      "voiceParts": [
+        "raidwide",
+        "mitigate"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 120,
+      "name": "火精の呪い＋魔力の輝石",
+      "note": "散開か頭割りのデバフを確認。十字を避け、対象者を分ける。",
+      "voiceParts": [
+        "checkdebuff",
+        "checkmarker"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 135,
+      "name": "玉石混交・幻影",
+      "note": "最初の範囲を避けたら対角へ。",
+      "voiceParts": [
+        "safe",
+        "then",
+        "diagonal",
+        "move"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 145,
+      "name": "怒りの炎",
+      "note": "全体攻撃。軽減。",
+      "voiceParts": [
+        "raidwide",
+        "mitigate"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 152,
+      "name": "焔光",
+      "note": "連続範囲を捨てて避け、頭割りに集合。",
+      "voiceParts": [
+        "drop",
+        "then",
+        "stack"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 180,
+      "name": "叫怒の爆炎",
+      "note": "頭割り直後の全体攻撃。回復と軽減。",
+      "voiceParts": [
+        "raidwide",
+        "heal",
+        "mitigate"
+      ],
+      "voiceBefore": 5
+    }
+  ]
+}
