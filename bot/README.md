@@ -4,6 +4,8 @@
 
 ## 初回セットアップ（Windows）
 
+日本語表示のDiscordを前提に説明します。開発者ポータルも日本語表示・ブラウザ翻訳での表示を優先し、英語名は括弧内に補足しています。翻訳やバージョンによって細かな表記が異なる場合があります。
+
 設定はWindows PCのDiscordアプリまたはブラウザ版Discordで行います。PS5でゲームをする場合も、Botを動かすWindows PCが必要です。以下の作業は初回だけで、プレイするたびにBotを作り直す必要はありません。
 
 ### 1. プログラムとNode.jsを用意する
@@ -18,18 +20,18 @@
 ### 2. Discordで専用Botを作り、アプリIDをコピーする
 
 1. [Discord Developer Portal](https://discord.com/developers/applications)を開き、普段使うDiscordアカウントでログインします。
-2. **New Application** を押し、名前を入力して作成します。例：`FF14 Timeline`。このツール専用のApplicationにしてください。
-3. 作成したApplicationを開き、左メニューの **General Information** を選びます。
-4. **Application ID** の **Copy** を押します。あとで `.env` の `DISCORD_CLIENT_ID` に貼り付けます。
+2. **新しいアプリケーション（New Application）** を押し、名前を入力して作成します。例：`FF14 Timeline`。このツール専用のApplicationにしてください。
+3. 作成したApplicationを開き、左メニューの **一般情報（General Information）** を選びます。
+4. **アプリケーションID（Application ID）** の **コピー（Copy）** を押します。あとで `.env` の `DISCORD_CLIENT_ID` に貼り付けます。
 
 Application IDはBotのアプリを識別する数字です。サーバーID、自分のユーザーID、Public Key、Client Secretとは別です。
 
 ### 3. Botトークンを取得する
 
-1. 同じApplicationの左メニューで **Bot** を選びます。
-2. **Token** の欄で **Reset Token** を押します。確認画面や二段階認証が出たら案内に従います。
+1. 同じApplicationの左メニューで **ボット（Bot）** を選びます。
+2. **トークン（Token）** の欄で **トークンをリセット（Reset Token）** を押します。確認画面や二段階認証が出たら案内に従います。
 3. 表示されたトークンをコピーして、あとで `.env` の `DISCORD_TOKEN` に貼り付けます。
-4. このBotでは **Privileged Gateway Intents** の項目を有効にする必要はありません。Message Content IntentなどはOFFのままで利用できます。
+4. このBotでは **特権ゲートウェイインテント（Privileged Gateway Intents）** の項目を有効にする必要はありません。メッセージ内容のインテント（Message Content Intent）などはOFFのままで利用できます。
 
 トークンはBotのパスワードに相当します。チャット・GitHub・スクリーンショットへ載せないでください。一度画面を離れると再表示できないため、コピーし忘れた場合は再発行します。**再発行すると古いトークンは使えなくなる**ので、既に設定している場合は `.env` も更新し、Botを再起動してください。
 
@@ -65,19 +67,21 @@ Bot自身のIDではなく、**Botを操作する自分のDiscordアカウント
 
 ### 5. Botをサーバーへ招待する
 
-1. Developer Portalで作成したApplicationを開き、左メニューの **Installation** を選びます。
-2. **Installation Contexts** で **Guild Install**（サーバーへの導入）を有効にします。このツールはサーバーに導入して使います。
-3. **Install Link** で **Discord Provided Link** を選びます。
-4. **Default Install Settings** の **Guild Install** で、Scopesに **bot** と **applications.commands** を追加します。
-5. Bot Permissionsに次の3つを設定し、変更を保存します。
+1. Developer Portalで作成したApplicationを開き、左メニューの **インストール（Installation）** を選びます。
+2. **インストールコンテキスト（Installation Contexts）** で **ギルドのインストール（Guild Install／サーバーへの導入）**を有効にします。このツールはサーバーに導入して使います。
+3. **インストールリンク（Install Link）** で **Discord提供リンク（Discord Provided Link）** を選びます。
+4. **安心のインストール設定**（英語ではDefault Install Settings）の **ギルドのインストール** を開き、**スコープ**に **ボット** と **アプリケーションコマンド** を追加します。英語表示ではそれぞれ `bot` と `applications.commands` です。
+5. **権限**に次の3つを設定し、変更を保存します。
 
-| 英語の権限名 | Discord上の意味 |
-|---|---|
-| View Channels | チャンネルを見る |
-| Connect | ボイスチャンネルへ接続する |
-| Speak | ボイスチャンネルで音声を出す |
+| 日本語画面で選ぶ項目 | 英語表示の場合 | 用途 |
+|---|---|---|
+| チャンネルを表示 | View Channels | チャンネルを見る |
+| 接続 | Connect | ボイスチャンネルへ入る |
+| 発言 | Speak | ボイスチャンネルで音声を出す |
 
-6. **Install Link** のURLをコピーし、ブラウザで開きます。
+**この画面での完成形**：スコープには「アプリケーションコマンド」「ボット」、権限には「チャンネルを表示」「接続」「発言」の計5項目が表示されます。「チャンネルを表示」と「発言」だけの場合は、権限の選択欄から「接続」も追加してください。
+
+6. **インストールリンク（Install Link）** のURLをコピーし、ブラウザで開きます。
 7. 導入先の選択が表示されたら **サーバーに追加（Add to server）** を選び、手順4でIDをコピーしたサーバーを指定して認証します。
 8. Discordのサーバーメンバー一覧にBotが追加されていることを確認します。この段階でオフラインでも正常です。`start.cmd` で起動するとオンラインになります。
 
@@ -90,8 +94,8 @@ Bot自身のIDではなく、**Botを操作する自分のDiscordアカウント
 
 | 設定項目 | 貼り付けるもの | コピー元 |
 |---|---|---|
-| `DISCORD_TOKEN` | Botトークン | Developer Portal → Bot → Token |
-| `DISCORD_CLIENT_ID` | Application ID | Developer Portal → General Information |
+| `DISCORD_TOKEN` | Botトークン | 開発者ポータル → ボット → トークン |
+| `DISCORD_CLIENT_ID` | Application ID | 開発者ポータル → 一般情報 → アプリケーションID |
 | `DISCORD_GUILD_ID` | 利用するサーバーのID | Discord左端のサーバーアイコンを右クリック |
 | `DISCORD_OWNER_ID` | 操作する自分のユーザーID | Discord内で自分の名前・アイコンを右クリック |
 
