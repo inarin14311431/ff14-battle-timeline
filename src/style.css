@@ -5,3 +5,5 @@
 nav{flex-wrap:wrap}ol li{margin:12px 0}header{gap:12px;flex-wrap:wrap}
 
 .provisional{border-color:#b7791f;color:#fde68a;font-size:14px}
+
+button:active{transform:translateY(1px);filter:brightness(1.2)}button.saved{background:#166534;border-color:#4ade80}#saveFeedback{font-size:14px;color:#a7f3d0}#events article{scroll-margin-top:16px}
