@@ -14,6 +14,11 @@ export function validate(raw){
  if(!e||typeof e.name!=='string'||!e.name.trim()||e.name.length>300||!(e.time===null||Number.isFinite(e.time)&&e.time>=0&&e.time<=86400)||!Array.isArray(e.voiceParts)||e.voiceParts.some(p=>!Object.hasOwn(parts,p))||e.voiceParts.length>20||!Number.isFinite(e.voiceBefore)||e.voiceBefore<0||e.voiceBefore>120||typeof e.note!=='string'||e.note.length>5000)throw Error(`${i+1}行目のデータが不正です。`);
  return {time:e.time,name:e.name,note:e.note,voiceParts:[...e.voiceParts],voiceBefore:e.voiceBefore};})};
 }
+export function setVoiceLead(raw,seconds){
+ if(!Number.isFinite(seconds)||seconds<0||seconds>120)throw Error('予告秒数は0〜120秒で入力してください。');
+ const data=validate(raw);
+ return {...data,events:data.events.map(e=>({...e,voiceBefore:seconds}))};
+}
 export function shiftTimes(raw,offset){
  if(!Number.isFinite(offset))throw Error('補正秒数を入力してください。');
  const data=validate(raw);
