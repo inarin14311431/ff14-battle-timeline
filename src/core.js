@@ -14,6 +14,17 @@ export function validate(raw){
  if(!e||typeof e.name!=='string'||!e.name.trim()||e.name.length>300||!(e.time===null||Number.isFinite(e.time)&&e.time>=0&&e.time<=86400)||!Array.isArray(e.voiceParts)||e.voiceParts.some(p=>!Object.hasOwn(parts,p))||e.voiceParts.length>20||!Number.isFinite(e.voiceBefore)||e.voiceBefore<0||e.voiceBefore>120||typeof e.note!=='string'||e.note.length>5000)throw Error(`${i+1}行目のデータが不正です。`);
  return {time:e.time,name:e.name,note:e.note,voiceParts:[...e.voiceParts],voiceBefore:e.voiceBefore};})};
 }
+export function shiftTimes(raw,offset){
+ if(!Number.isFinite(offset))throw Error('補正秒数を入力してください。');
+ const data=validate(raw);
+ const events=data.events.map((e,i)=>{
+  if(e.time===null)return e;
+  const time=Number((e.time+offset).toFixed(9));
+  if(time<0||time>86400)throw Error(`${i+1}行目が0〜86400秒の範囲を外れるため、全体の補正を適用できません。`);
+  return {...e,time};
+ });
+ return {...data,events};
+}
 export function timedEvents(data){return data.events.map((e,index)=>({...e,index})).filter(e=>e.time!==null).sort((a,b)=>a.time-b.time||a.index-b.index);}
 export function position(data,time){const list=timedEvents(data);let current=-1;for(let i=0;i<list.length;i++)if(list[i].time<=time)current=i;return {list,current,next:list[current+1]};}
 export function due(data,from,to){return timedEvents(data).filter(e=>e.voiceParts.length&&Math.max(0,e.time-e.voiceBefore)>from&&Math.max(0,e.time-e.voiceBefore)<=to);}
