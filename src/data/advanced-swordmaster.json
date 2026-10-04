@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "boss": "商客物語 AVD／ソードマスター（暫定秒数・未検証）",
+  "boss": "商客物語 AVD／ソードマスター（暫定秒数＋10秒・未検証）",
   "events": [
     {
-      "time": 12,
+      "time": 10,
       "name": "剣気解放",
-      "note": "全体攻撃。軽減。",
+      "note": "物理全体。近接は牽制",
       "voiceParts": [
         "raidwide",
         "mitigate"
@@ -13,18 +13,18 @@
       "voiceBefore": 5
     },
     {
-      "time": 25,
+      "time": 16,
       "name": "四方凶兆",
-      "note": "赤い方向を覚え、その方向から攻撃を受けない。",
+      "note": "前後左右のどれかが赤。赤い方向から受けると大ダメージ",
       "voiceParts": [
         "checkdebuff"
       ],
       "voiceBefore": 5
     },
     {
-      "time": 40,
+      "time": 21,
       "name": "縛鎖凶兆撃",
-      "note": "緑の方向が赤と重ならない人が線を受け持つ。",
+      "note": "線2本。緑の扇と自分の凶兆が一致しない人が取る。受けると凶兆が1つ増える",
       "voiceParts": [
         "checkdebuff",
         "taketether"
@@ -32,9 +32,9 @@
       "voiceBefore": 5
     },
     {
-      "time": 62,
-      "name": "変転光波＋霊撃波",
-      "note": "扇を避け、外周の光波を赤くない方向で受ける。",
+      "time": 49,
+      "name": "変転光波 → 霊撃波",
+      "note": "前後 / 左右の扇のあと、外周の赤い光波4本。凶兆以外の面で受ける",
       "voiceParts": [
         "cone",
         "dodge",
@@ -43,19 +43,19 @@
       "voiceBefore": 5
     },
     {
-      "time": 85,
-      "name": "天界交差斬・円／輪",
-      "note": "円は外→内、輪は内→外。剣の数で必要人数を確認。",
+      "time": 67,
+      "name": "天界交差斬・円 / 輪",
+      "note": "円は円→ドーナツ、輪はドーナツ→円。剣1つは1人受け、2つは2人以上。1人で2つ受けると吹き飛ぶ",
       "voiceParts": [
-        "checkcast",
-        "checkmarker"
+        "checkmarker",
+        "dodge"
       ],
       "voiceBefore": 5
     },
     {
-      "time": 108,
-      "name": "灼熱残響＋咬撃十字斬＋八葉残響",
-      "note": "範囲捨てと十字・8方向範囲を回避。",
+      "time": 112,
+      "name": "灼熱残響 → 咬撃十字斬 → 八葉残響",
+      "note": "足元大円を4回。間に十字、4発目の跡地から8方向。全員同じ場所に捨てる",
       "voiceParts": [
         "drop",
         "cross",
@@ -64,19 +64,19 @@
       "voiceBefore": 5
     },
     {
-      "time": 125,
-      "name": "天界交差斬・円／輪（再使用）",
-      "note": "内外と剣の数を確認。続く強攻撃前に回復。",
+      "time": 167,
+      "name": "天界交差斬・円 / 輪",
+      "note": "同上",
       "voiceParts": [
-        "checkcast",
-        "checkmarker"
+        "checkmarker",
+        "dodge"
       ],
       "voiceBefore": 5
     },
     {
-      "time": 138,
+      "time": 175,
       "name": "斬り上げ",
-      "note": "ヘイト1位へ強攻撃。",
+      "note": "ヘイト1位の強攻撃",
       "voiceParts": [
         "tank",
         "buster",
@@ -85,9 +85,29 @@
       "voiceBefore": 5
     },
     {
-      "time": 155,
-      "name": "凶兆撃×2＋幻影光波・四連＋灼熱残響",
-      "note": "赤くない方向で光波を受け、足元の範囲を捨てる。",
+      "time": 177,
+      "name": "凶兆撃 1回目",
+      "note": "扇を受けて凶兆が増える",
+      "voiceParts": [
+        "checkmarker",
+        "dodge"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 191,
+      "name": "凶兆撃 2回目",
+      "note": "被ダメ上昇が付く。軽減",
+      "voiceParts": [
+        "checkmarker",
+        "dodge"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 226,
+      "name": "幻影光波・四連 → 灼熱残響",
+      "note": "全員同じ向きで受けると安地を1つにまとめやすい",
       "voiceParts": [
         "checkdebuff",
         "drop"
@@ -95,9 +115,30 @@
       "voiceBefore": 5
     },
     {
-      "time": 185,
+      "time": 320,
+      "name": "天界交差斬・円 / 輪",
+      "note": "同上",
+      "voiceParts": [
+        "checkmarker",
+        "dodge"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 328,
+      "name": "斬り上げ",
+      "note": "ヘイト1位の強攻撃",
+      "voiceParts": [
+        "tank",
+        "buster",
+        "mitigate"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 330,
       "name": "時差剣波",
-      "note": "3番目の範囲で待ち、1番目の発動後に跡地へ。",
+      "note": "円が3セット。3回目の上で待ち、1回目が終わったら跡地へ",
       "voiceParts": [
         "third",
         "wait",
@@ -107,9 +148,9 @@
       "voiceBefore": 5
     },
     {
-      "time": 205,
-      "name": "八葉反響＋咬撃古狼閃",
-      "note": "範囲を外周へ捨て、直線を避けてボスの背面へ。",
+      "time": 342,
+      "name": "八葉反響 → 咬撃古狼閃",
+      "note": "外周に捨てた場所から8方向。ボスが中央に戻り、向きに半面。背面側へ回る",
       "voiceParts": [
         "outer",
         "drop",
@@ -118,23 +159,71 @@
       "voiceBefore": 5
     },
     {
-      "time": 230,
-      "name": "剣気解放＋四方凶兆＋凶兆撃",
-      "note": "全体攻撃後、赤くない方向を確認。",
+      "time": 367,
+      "name": "天界交差斬・円 / 輪",
+      "note": "同上",
+      "voiceParts": [
+        "checkmarker",
+        "dodge"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 371,
+      "name": "剣気解放",
+      "note": "床が変化する全体",
       "voiceParts": [
         "raidwide",
+        "mitigate"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 383,
+      "name": "四方凶兆（2方向）",
+      "note": "東西凶兆は南北へ、南北凶兆は東西へ1人ずつ分かれて扇を受けると凶兆3つ",
+      "voiceParts": [
         "checkdebuff"
       ],
       "voiceBefore": 5
     },
     {
-      "time": 250,
-      "name": "幻影光波＋剣気呪縛＋縛鎖凶兆撃",
-      "note": "扇回避後に中央で線を受け、赤くない方角へ離れる。続く線取りを確認。",
+      "time": 395,
+      "name": "凶兆撃",
+      "note": "残った安全面で受ける",
       "voiceParts": [
-        "center",
-        "breaktether",
-        "checkdebuff"
+        "checkdebuff",
+        "taketether"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 425,
+      "name": "幻影光波 → 線切り",
+      "note": "扇は2回目の位置で待ち、1回目の跡地へ。紫線は距離を取って切る",
+      "voiceParts": [
+        "checkdebuff",
+        "drop"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 461,
+      "name": "縛鎖凶兆撃",
+      "note": "凶兆と一致しない人が線を取る",
+      "voiceParts": [
+        "checkdebuff",
+        "taketether"
+      ],
+      "voiceBefore": 5
+    },
+    {
+      "time": 471,
+      "name": "剣気解放",
+      "note": "床が戻る全体",
+      "voiceParts": [
+        "raidwide",
+        "mitigate"
       ],
       "voiceBefore": 5
     }
