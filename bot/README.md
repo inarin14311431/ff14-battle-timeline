@@ -2,18 +2,134 @@
 
 ブラウザ版で作成したタイムラインのJSONまたは音声付きZIPを利用し、ボイスチャンネルへ予告音声を流します。Botを動かすPCは、プレイ中は起動してネット接続を維持します。ゲームとの自動連携はありません。
 
-## 初回セットアップ
-1. リポジトリ全体をDownload ZIPまたはgit cloneで取得します。botフォルダだけでは動きません。
-2. Node.js 24.17以上をWindowsにインストールします。
-3. https://discord.com/developers/applications で専用Applicationを作成します。Botのトークン、General InformationのApplication IDを確認します。
-4. Discordのユーザー設定 → 詳細設定 → 開発者モードをONにし、サーバーIDと自分のユーザーIDをコピーします。
-5. InstallationでGuild Installを選び、Scopesにbotとapplications.commands、Bot PermissionsにView Channels・Connect・Speakを設定して、自分のサーバーへ招待します。管理者権限とMessage Content Intentは不要です。
-6. `setup.cmd`をダブルクリックします。依存関係の取得にはネット接続が必要です。
-7. 作成された`bot/.env`をメモ帳で開き、4項目を設定します。トークンはPC内に保管し、チャット・GitHub・画像に載せません。
-8. `prepare-audio.cmd`でWindowsの日本語音声からWAVパーツを生成します。System.Speechで利用可能な日本語音声がない場合は、Windowsの言語・音声設定で日本語音声を追加するか、録音ファイルを利用してください。
-9. `register.cmd`で専用サーバーにスラッシュコマンドを登録します。この専用Applicationのサーバー内コマンドを置き換えます。
+## 初回セットアップ（Windows）
 
-音声は `audio/right.wav`、`audio/stack.mp3` など、ブラウザ版のパーツIDと一致するファイル名で差し替えられます。既存WAVは音声生成で上書きしません。読み上げ音声はWindows環境によって異なります。DAVE対応の@discordjs/voiceを使用し、FFmpegはffmpeg-staticで導入します。
+設定はWindows PCのDiscordアプリまたはブラウザ版Discordで行います。PS5でゲームをする場合も、Botを動かすWindows PCが必要です。以下の作業は初回だけで、プレイするたびにBotを作り直す必要はありません。
+
+### 1. プログラムとNode.jsを用意する
+
+1. [プログラム全体のZIP](https://github.com/inarin14311431/ff14-battle-timeline/archive/refs/heads/main.zip)をダウンロードします。
+2. ZIPを右クリック → **すべて展開**を選びます。展開先は、例えばドキュメント内の `ff14-battle-timeline-main` にします。ZIPを開いたまま実行せず、必ず展開してください。
+3. 展開したフォルダ内に `bot` と `src` があることを確認します。**botフォルダだけを移動すると動きません。**
+4. [Node.js公式サイト](https://nodejs.org/)からWindows用インストーラーを入手し、**24.17以上**をインストールします。インストール済みなら、コマンドプロンプトで `node -v` を入力して確認できます。
+5. `bot` フォルダを開いて `setup.cmd` をダブルクリックします。依存ファイルをダウンロードするのでネット接続が必要です。
+6. 黒いウィンドウに `Setup complete.` が表示されたら成功です。`bot` 内に設定用の `.env` ファイルができます。
+
+### 2. Discordで専用Botを作り、アプリIDをコピーする
+
+1. [Discord Developer Portal](https://discord.com/developers/applications)を開き、普段使うDiscordアカウントでログインします。
+2. **New Application** を押し、名前を入力して作成します。例：`FF14 Timeline`。このツール専用のApplicationにしてください。
+3. 作成したApplicationを開き、左メニューの **General Information** を選びます。
+4. **Application ID** の **Copy** を押します。あとで `.env` の `DISCORD_CLIENT_ID` に貼り付けます。
+
+Application IDはBotのアプリを識別する数字です。サーバーID、自分のユーザーID、Public Key、Client Secretとは別です。
+
+### 3. Botトークンを取得する
+
+1. 同じApplicationの左メニューで **Bot** を選びます。
+2. **Token** の欄で **Reset Token** を押します。確認画面や二段階認証が出たら案内に従います。
+3. 表示されたトークンをコピーして、あとで `.env` の `DISCORD_TOKEN` に貼り付けます。
+4. このBotでは **Privileged Gateway Intents** の項目を有効にする必要はありません。Message Content IntentなどはOFFのままで利用できます。
+
+トークンはBotのパスワードに相当します。チャット・GitHub・スクリーンショットへ載せないでください。一度画面を離れると再表示できないため、コピーし忘れた場合は再発行します。**再発行すると古いトークンは使えなくなる**ので、既に設定している場合は `.env` も更新し、Botを再起動してください。
+
+### 4. サーバーIDと自分のユーザーIDをコピーする
+
+まず、Developer Portalではなく、**普段のDiscord画面**を開きます。
+
+**開発者モードを有効にする**
+
+1. Discord左下の自分の名前付近にある **歯車（ユーザー設定）** を押します。
+2. 設定メニューの **詳細設定** を開きます。
+3. **開発者モード** をONにして、設定画面を閉じます。
+
+**サーバーIDをコピーする → `DISCORD_GUILD_ID`**
+
+1. Discordの一番左に並ぶ丸いアイコンから、Botを利用するサーバーを探します。
+2. **そのサーバーのアイコンを右クリック**します。
+3. **サーバーIDをコピー**を選びます。メニュー表記が「IDをコピー」の場合もあります。
+4. コピーした数字を `.env` の `DISCORD_GUILD_ID=` の右側に貼り付けます。
+
+サーバー名や招待リンクではなく数字のIDを使います。ボイスチャンネルを右クリックして取得したIDはチャンネルIDなので、ここには使いません。
+
+**自分のユーザーIDをコピーする → `DISCORD_OWNER_ID`**
+
+1. サーバー内のテキストチャンネルで、自分が投稿したメッセージを表示します。
+2. メッセージ本文ではなく、**投稿者である自分の名前やアイコンを右クリック**します。メンバー一覧に表示された自分を右クリックしても取得できます。
+3. **ユーザーIDをコピー**を選びます。
+4. コピーした数字を `.env` の `DISCORD_OWNER_ID=` の右側に貼り付けます。
+
+Bot自身のIDではなく、**Botを操作する自分のDiscordアカウントのID**です。コピー項目が出ないときは、開発者モードがONか確認してください。
+
+スマホで取得する場合は、設定 → 詳細設定 → 開発者モードをONにします。サーバーIDは対象サーバー上部のサーバー名をタップし、メニューの「サーバーIDをコピー」から取得できます。ユーザーIDは自分のプロフィールを開き、右上の「…」→「ユーザーIDをコピー」から取得します。画面表記はDiscordのバージョンで変わることがあります。
+
+### 5. Botをサーバーへ招待する
+
+1. Developer Portalで作成したApplicationを開き、左メニューの **Installation** を選びます。
+2. **Installation Contexts** で **Guild Install**（サーバーへの導入）を有効にします。このツールはサーバーに導入して使います。
+3. **Install Link** で **Discord Provided Link** を選びます。
+4. **Default Install Settings** の **Guild Install** で、Scopesに **bot** と **applications.commands** を追加します。
+5. Bot Permissionsに次の3つを設定し、変更を保存します。
+
+| 英語の権限名 | Discord上の意味 |
+|---|---|
+| View Channels | チャンネルを見る |
+| Connect | ボイスチャンネルへ接続する |
+| Speak | ボイスチャンネルで音声を出す |
+
+6. **Install Link** のURLをコピーし、ブラウザで開きます。
+7. 導入先の選択が表示されたら **サーバーに追加（Add to server）** を選び、手順4でIDをコピーしたサーバーを指定して認証します。
+8. Discordのサーバーメンバー一覧にBotが追加されていることを確認します。この段階でオフラインでも正常です。`start.cmd` で起動するとオンラインになります。
+
+招待する人には、そのサーバーの「サーバー管理」権限が必要です。候補にサーバーが出ない場合は、ログイン中のアカウントと権限を確認してください。Botに管理者権限を付ける必要はありません。利用するVCに個別の権限設定がある場合は、そこでもBotの閲覧・接続・発言を許可してください。
+
+### 6. `.env`に4項目を保存する
+
+1. `bot` フォルダの `.env` を右クリック → **プログラムから開く** → **メモ帳**で開きます。
+2. 各行の `YOUR_...` を、取得した値に置き換えます。左側の項目名と `=` は残してください。
+
+| 設定項目 | 貼り付けるもの | コピー元 |
+|---|---|---|
+| `DISCORD_TOKEN` | Botトークン | Developer Portal → Bot → Token |
+| `DISCORD_CLIENT_ID` | Application ID | Developer Portal → General Information |
+| `DISCORD_GUILD_ID` | 利用するサーバーのID | Discord左端のサーバーアイコンを右クリック |
+| `DISCORD_OWNER_ID` | 操作する自分のユーザーID | Discord内で自分の名前・アイコンを右クリック |
+
+設定前のファイルは次の形です。下の仮の文字列をそのまま残さず、実際の値に置き換えます。
+
+```dotenv
+DISCORD_TOKEN=YOUR_BOT_TOKEN
+DISCORD_CLIENT_ID=YOUR_APPLICATION_ID
+DISCORD_GUILD_ID=YOUR_SERVER_ID
+DISCORD_OWNER_ID=YOUR_USER_ID
+```
+
+3. 値は半角で貼り付け、IDは数字だけにします。値の前後に空白を入れないでください。
+4. **Ctrl+S**で上書き保存し、メモ帳を閉じます。
+
+ファイル名は正確に `.env` です。`.env.example` の編集や `.env.txt` という名前での保存では設定が読み込まれません。見分けづらい場合はエクスプローラーで「ファイル名拡張子」を表示します。Windows 11では「表示」→「表示」→「ファイル名拡張子」、Windows 10では「表示」タブにあります。`.env` が見つからない場合は `setup.cmd` が成功したか確認してください。
+
+### 7. 音声を生成し、コマンドを登録する
+
+1. `bot/prepare-audio.cmd` をダブルクリックします。Windowsの日本語音声から共通パーツのWAVを生成します。
+2. `音声をaudioフォルダに生成しました。` と表示され、`bot/audio` に `right.wav` や `stack.wav` などができれば成功です。
+3. `bot/register.cmd` をダブルクリックします。
+4. **指定サーバーへコマンドを登録しました。** と表示されれば成功です。
+
+`register.cmd` はこのApplicationの指定サーバー内のコマンドを置き換えます。初回と、Bot更新でコマンドが変更されたときに実行します。毎回の起動時は不要です。
+
+音声生成にはSystem.Speechから利用できる日本語音声が必要です。生成できない場合はWindowsの言語・音声設定で日本語音声を追加するか、録音ファイルを利用します。`audio/right.wav`、`audio/stack.mp3` など、Web版のパーツIDと一致するファイル名で差し替えできます。既存WAVは生成時に上書きしません。読み上げ音声はWindows環境で異なります。FFmpegは `setup.cmd` で自動導入します。
+
+### 8. サンプルで動作を確認する
+
+1. `bot/start.cmd` をダブルクリックし、**起動しました: …。Ctrl+Cで終了。** が出るのを待ちます。このウィンドウは閉じずに残します。
+2. 設定したサーバーの通常のボイスチャンネルへ、自分が参加します。ステージチャンネルは対象外です。
+3. 同じサーバーのテキストチャンネルの入力欄で `/join` と入力し、候補からこのBotのコマンドを選んでEnterを押します。
+4. Botが自分と同じVCに参加したら `/test` を実行します。「右・頭割り」と聞こえれば音声接続成功です。
+5. `/start` を選び、追加の **boss** 欄に `sample.json` を指定して実行します。サンプルは架空の時間で、予告音声を確認するためのものです。
+6. `/status` で時刻と次の行動を確認し、`/pause` で停止します。
+
+コマンドは通常の文章として送信せず、`/` を入力したときに出る候補から選びます。コマンドの応答は操作した本人に表示され、音声は同じVCの参加者全員に聞こえます。
 
 ## 毎回の利用
 1. ブラウザ編集ページからJSONまたは音声付きZIPを書き出し、`bot/timelines`に入れます。
@@ -36,6 +152,30 @@
 | /leave | 退出・停止 |
 
 設定した本人だけが指定サーバー内で操作できます。コマンドの応答は本人だけに表示され、予告音声は同じVCの参加者に聞こえます。会話の受信・録音は行いません。Botトークンをブラウザ版へ渡す必要はありません。
+
+## 困ったとき
+
+| 症状 | 確認すること |
+|---|---|
+| 「Install Node.js 24.17 or newer first.」が出る | `node -v` でバージョンを確認。インストール後はウィンドウを開き直し、`setup.cmd` を再実行 |
+| `.envの…を設定してください` が出る | 該当行の `YOUR_...` を置き換えたか、`.env` を上書き保存したか確認 |
+| 「DiscordのIDを指定してください」が出る | サーバー名・URL・ユーザー名ではなくコピーした数字だけを設定 |
+| 「登録失敗」が出る | トークンとApplication IDが同じApplicationのものか、サーバーIDが招待先と一致するか、Botが招待済みか確認 |
+| Botがオフライン／応答しない | `start.cmd` のウィンドウを開いたままにする。ログイン失敗ならトークンとネット接続を確認 |
+| `/join`などが候補に出ない | `register.cmd` の成功表示と操作中のサーバーを確認。Discordを再読み込みし、サーバーやチャンネルでアプリコマンドの利用が制限されていないか確認 |
+| 「設定した本人が指定サーバー内で操作します」と出る | `DISCORD_OWNER_ID` が自分のIDか、`DISCORD_GUILD_ID` が現在のサーバーIDか確認。変更したらBotを再起動 |
+| VCに入れない／音が出ない | 自分が通常のVCにいるか、Botに閲覧・接続・発言の権限があるか、サーバーミュートされていないか、Botのユーザー音量が0でないか確認 |
+| 「音声がありません」と出る | `prepare-audio.cmd` を実行。該当パーツIDの音声ファイルを `bot/audio` に用意するか、音声付きZIPを書き出す |
+| `/list`に追加したボスが出ない | JSON／ZIPを展開済みプログラムの `bot/timelines` に入れる。`src/data` にあるJSONはそこへコピーする。ZIP内の設定不備も確認 |
+| 戦闘と時刻がずれる | `/seek seconds:120` は**経過時刻を120秒に設定**する操作で、120秒加算ではない。予告は各行の「予告秒数」だけ早く再生される |
+
+トークンを再発行・設定を変更した場合は、BotをCtrl+Cで終了して `start.cmd` を開き直します。サーバーIDやApplication IDを変更した場合は `register.cmd` も再実行します。
+
+## 参照したDiscord公式手順
+
+- [ユーザーID・サーバーIDのコピー方法](https://support.discord.com/hc/ja/articles/206346498)
+- [Applicationの作成とサーバーへの導入](https://docs.discord.com/developers/quick-start/getting-started)
+- [Botトークンをコピーできない場合](https://support-dev.discord.com/hc/en-us/articles/6470840524311)
 
 ## 制約と検証
 - `sample.json`は架空の時間の操作サンプルです。
