@@ -1,4 +1,4 @@
-param([Parameter(Mandatory=$true)][string]$InputPath,[Parameter(Mandatory=$true)][string]$OutputDir)
+param([Parameter(Mandatory=$true)][string]$InputPath,[Parameter(Mandatory=$true)][string]$OutputDir,[switch]$Force)
 $ErrorActionPreference = 'Stop'
 Add-Type -AssemblyName System.Speech
 $synth = New-Object System.Speech.Synthesis.SpeechSynthesizer
@@ -11,9 +11,16 @@ try {
   foreach ($item in $items) {
     if ($item.id -notmatch '^[a-z0-9]+$') { throw 'Invalid audio ID' }
     $target = Join-Path $OutputDir ($item.id + '.wav')
-    if (Test-Path -LiteralPath $target) { continue }
-    $synth.SetOutputToWaveFile($target)
-    $synth.Speak([string]$item.text)
-    $synth.SetOutputToNull()
+    if ((Test-Path -LiteralPath $target) -and -not $Force) { continue }
+    $temporary = Join-Path $OutputDir ($item.id + '.' + [guid]::NewGuid().ToString('N') + '.tmp.wav')
+    try {
+      $synth.SetOutputToWaveFile($temporary)
+      $synth.Speak([string]$item.text)
+      $synth.SetOutputToNull()
+      Move-Item -LiteralPath $temporary -Destination $target -Force
+    } finally {
+      $synth.SetOutputToNull()
+      if (Test-Path -LiteralPath $temporary) { Remove-Item -LiteralPath $temporary }
+    }
   }
 } finally { $synth.Dispose() }
