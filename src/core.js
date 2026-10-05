@@ -1,4 +1,6 @@
 export const parts={raidwide:'全体攻撃',buster:'強攻撃',right:'右',left:'左',spread:'散開',center:'中央',stack:'頭割り',gather:'集合',outer:'外周',front:'前',back:'後ろ',move:'移動',wait:'待機',mitigate:'軽減',tank:'タンク',healer:'ヒーラー',marked:'マーカー対象',three:'3',two:'2',one:'1'};
+export function speechText(id){return parts[id]?.replaceAll('強攻撃','きょうこうげき').replaceAll('頭割り','あたまわり');}
+
 export const partGroups=[
  {label:'攻撃・対処',ids:['raidwide','buster','stack','pair','lightparty','spread','eightspread','gather','mitigate','heal','barrier','invuln','swap','tanklb','knockback','antiknockback','pull','distance','tower','tether','breaktether','taketether','bait','drop','dodge','lookaway','stop','keepmoving','move','wait','checkcast','checkdebuff','checkmarker','interrupt','esuna','adds','chase','takeorb','checkexpiry']},
  {label:'位置・方向',ids:['right','left','center','outer','inner','front','back','under','away','north','south','east','west','northeast','northwest','southeast','southwest','clockwise','counterclockwise','opposite','diagonal','safe','bossrelative','fieldrelative','leading']},
